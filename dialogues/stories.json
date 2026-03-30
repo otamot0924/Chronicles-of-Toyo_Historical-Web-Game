@@ -1,0 +1,21 @@
+{
+  "intro": [
+    {
+      "name": "秦始皇",
+      "portrait": "https://via.placeholder.com/100/e74c3c/ffffff?text=Qin",
+      "text": "朕統六國，天下歸一。你這小輩，所為何來？"
+    },
+    {
+      "name": "神秘人",
+      "portrait": "https://via.placeholder.com/100/3498db/ffffff?text=Stranger",
+      "text": "回稟陛下，時空裂縫已開，未來的代碼正侵蝕我大秦江山..."
+    }
+  ],
+  "village_npc": [
+    {
+      "name": "村長",
+      "portrait": "https://via.placeholder.com/100/27ae60/ffffff?text=Elder",
+      "text": "年輕人，前方危險，先帶上這把生鏽的鐵劍吧。"
+    }
+  ]
+}

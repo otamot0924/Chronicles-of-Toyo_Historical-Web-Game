@@ -1,0 +1,183 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+#start-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #997a51;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+
+#game-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #997a51;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+#start-icon {
+    width: 600px;
+    height: 800px;
+    background-image: url('assets/start-icon.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#start-button {
+    background-color: #492e18;
+    
+    width: 200px;
+    height: 60px;
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-bottom: 75px;
+}
+
+#start-button:hover {
+    background-color: #311d0c;
+}
+
+.button-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.button-text {
+    color: #f5af2d;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#loading-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/loading_bg.png');
+    background-color: #997a51; /* 背景圖片載入前的純色佔位 */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 50; /* 確保在對話系統之上 */
+}
+
+/* 移動的正方形小圖片 */
+#loading-bar-moving-img {
+    position: absolute;
+    width: 80px; /* 正方形大小 */
+    height: 80px;
+    /* 這裡原本是色塊，我加上圖片預設路徑 */
+    background-color: #492e18; 
+    top: 50%; /* 垂直居中 */
+    transform: translateY(-50%); /* 精確垂直居中修正 */
+    
+    left: 25%;
+}
+
+#loading-bar-moving-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 對話系統 */
+#dialogue-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+#npc-portrait-container {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #f5af2d;
+    background-color: #5f4426;
+    margin-bottom: -15px; /* 讓頭像與對話框產生重疊感 */
+    margin-left: 20px;
+    z-index: 10;
+    overflow: hidden;
+}
+
+#npc-portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#dialogue-box {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #5f4426;
+    border-radius: 10px;
+    padding: 20px 30px;
+    color: white;
+    min-height: 100px;
+    cursor: pointer;
+    position: relative;
+}
+
+#npc-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f5af2d;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #555;
+    display: inline-block;
+}
+
+#dialogue-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.next-indicator {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    animation: bounce 1s infinite;
+    color: #f5af2d;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}

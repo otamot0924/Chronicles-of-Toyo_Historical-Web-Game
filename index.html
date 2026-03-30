@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>東瀛紀事</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="start-screen">
+        <div id="start-icon"></div>
+        <button id="start-button">
+            <span class="button-text">開始遊戲</span>
+        </button>
+
+    </div>
+
+    <div id="game-content" style="display: none;">
+
+        <div id="loading-screen" style="display: none;">            
+            <div id="loading-bar-moving-img">
+                <img alt="移動中">
+            </div>
+        </div>
+
+        <div id="dialogue-container">
+            <div id="npc-portrait-container">
+                <img id="npc-portrait" alt="NPC">
+            </div>
+            
+            <div id="dialogue-box">
+                <div id="npc-name">NPC 名字</div>
+                <p id="dialogue-text">點擊對話框以開始...</p>
+                <div class="next-indicator">▼</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
