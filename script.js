@@ -1,3 +1,15 @@
+async function fadeTransition(callback, duration = 500) {
+    const mask = document.getElementById('scene-transition-mask');
+
+    mask.classList.add('active');
+
+    await new Promise(resolve => setTimeout(resolve, 800));
+    if (callback) callback();
+    await new Promise(resolve => setTimeout(resolve, duration));
+
+    mask.classList.remove('active');
+}
+
 const DialogueEngine = {
     allStories: {},
     currentData: [],
@@ -17,6 +29,7 @@ const DialogueEngine = {
 
     start(storyId) {
         const story = this.allStories[storyId];
+        document.getElementById('dialogue-container').style.display = 'block';
         if (story) {
             this.currentData = story;
             this.currentIndex = 0;
@@ -93,8 +106,7 @@ function runLoadingAnimation(callback) {
     dialogueContainer.style.display = 'none';
 
     let progress = 0;
-    const speed = 2;
-    const animationDuration = 4000;
+    const animationDuration = 5000;
     const intervalTime = 20;
     const totalFrames = animationDuration / intervalTime;
     const increment = 100 / totalFrames;
@@ -127,10 +139,11 @@ async function initGame() {
         document.getElementById('start-screen').style.display = 'none';
         document.getElementById('game-content').style.display = 'block';
 
-        runLoadingAnimation(() => {
-            document.getElementById('loading-screen').style.display = 'none';
-            document.getElementById('dialogue-container').style.display = 'block';
-            
+        runLoadingAnimation(async () => {
+            await fadeTransition(() => {
+                document.getElementById('loading-screen').style.display = 'none';
+            });
+            await new Promise(resolve => setTimeout(resolve, 1000));
             DialogueEngine.start('intro');
         });
     });

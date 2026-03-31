@@ -22,6 +22,25 @@ body, html {
     padding: 25px 0;
 }
 
+#scene-transition-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0; /* 預設透明 */
+    z-index: 9999; /* 確保在所有元件最上方 */
+    pointer-events: none; /* 平時不擋住下方的點擊 */
+    transition: opacity 0.8s ease-in-out; /* 控制淡入淡出的速度 */
+}
+
+/* 當激活時，變為不透明 */
+#scene-transition-mask.active {
+    opacity: 1;
+    pointer-events: all; /* 全黑時擋住點擊，防止玩家在轉場時亂點 */
+}
+
 #game-content {
     position: relative;
     width: 100%;
