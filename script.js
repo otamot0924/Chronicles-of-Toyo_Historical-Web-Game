@@ -87,19 +87,20 @@ function runLoadingAnimation(callback) {
     const loadingScreen = document.getElementById('loading-screen');
     const movingImg = document.getElementById('loading-bar-moving-img');
     const dialogueContainer = document.getElementById('dialogue-container');
+    const loadingBar = document.getElementById('loading-bar');
 
     loadingScreen.style.display = 'block';
     dialogueContainer.style.display = 'none';
 
     let progress = 0;
     const speed = 2;
-    const animationDuration = 3500;
+    const animationDuration = 4000;
     const intervalTime = 20;
     const totalFrames = animationDuration / intervalTime;
     const increment = 100 / totalFrames;
 
-    const startX = 25;
-    const endX = 65;
+    const startX = 35;
+    const endX = 55;
 
     setTimeout(() => {
         const timer = setInterval(() => {
@@ -113,6 +114,7 @@ function runLoadingAnimation(callback) {
             } else {
                 const currentX = startX + (endX - startX) * (progress / 100);
                 movingImg.style.left = `${currentX}%`;
+                loadingBar.style.width = `${progress}%`;
             }
         }, intervalTime);
     }, 500);
