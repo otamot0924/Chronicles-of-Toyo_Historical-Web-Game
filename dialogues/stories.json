@@ -1,21 +1,52 @@
 {
   "intro": [
     {
-      "name": "秦始皇",
-      "portrait": "https://via.placeholder.com/100/e74c3c/ffffff?text=Qin",
-      "text": "朕統六國，天下歸一。你這小輩，所為何來？"
-    },
-    {
-      "name": "神秘人",
-      "portrait": "https://via.placeholder.com/100/3498db/ffffff?text=Stranger",
-      "text": "回稟陛下，時空裂縫已開，未來的代碼正侵蝕我大秦江山..."
+      "name": "林豪",
+      "portrait": "assets/lin-hao-neutral.png",
+      "text": "東渡來此（臺灣）已有一段時日，訪幽尋勝增加我的見聞和閱歷。"
     }
   ],
-  "village_npc": [
+  "letter_a": [
     {
-      "name": "村長",
-      "portrait": "https://via.placeholder.com/100/27ae60/ffffff?text=Elder",
-      "text": "年輕人，前方危險，先帶上這把生鏽的鐵劍吧。"
+      "name": "林豪",
+      "portrait": "assets/lin-hao-neutral.png",
+      "text": "這是淡水的族人邀我前往淡水時寄的來信。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/lin-hao-neutral.png",
+      "text": "東渡來此（臺灣）期望能尋得不同的機遇。"
+    }
+  ],
+  "letter_b": [
+    {
+      "name": "林豪",
+      "portrait": "assets/lin-hao-neutral.png",
+      "text": "這是好友林向榮的回信。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/lin-hao-neutral.png",
+      "text": "如今我已到東瀛（臺灣），我們早已約好我南下拜訪他。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/lin-hao-neutral.png",
+      "text": "三年前因捻亂使我錯失會試機會，也許他知道其他的機會。"
+    }
+  ],
+  "leave_warning": [
+    {
+      "name": "林豪",
+      "portrait": "assets/lin-hao-neutral.png",
+      "text": "總感覺似乎還有信件還未閱讀...。"
+    }
+  ],
+  "leave_intro": [
+    {
+      "name": "林豪",
+      "portrait": "assets/lin-hao-neutral.png",
+      "text": "是時候出發南下去拜訪好友了。"
     }
   ]
 }

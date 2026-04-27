@@ -132,14 +132,61 @@ function runLoadingAnimation(callback) {
     }, 500);
 }
 
+const SceneManager = {
+    allScenes: {},
+    currentScene: null,
+
+    async loadSceneFile(url) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("無法讀取場景檔案");
+            this.allScenes = await response.json();
+            console.log("場景載入成功！");
+        } catch (error) {
+            console.error("載入場景檔案時發生錯誤:", error);
+        }
+    },
+
+    switch(sceneId) {
+        const scene = this.allScenes[sceneId];
+        this.currentScene = scene;
+        document.getElementById('scene-container').style.backgroundImage = `url(${this.currentScene['image']})`;
+        if (scene['right']) {
+            document.getElementById('scene-right-button').style.display = 'block';
+        } else {
+            document.getElementById('scene-right-button').style.display = 'none';
+        }
+        if (scene['left']) {
+            document.getElementById('scene-left-button').style.display = 'block';
+        } else {
+            document.getElementById('scene-left-button').style.display = 'none';
+        }
+    },
+
+    right() {
+        if (this.currentScene && this.currentScene['right']) {
+            this.switch(this.currentScene['right']);
+            document.getElementById('scene-container').style.backgroundImage = `url(${this.currentScene['image']})`;
+        }
+    },
+
+    left() {
+        if (this.currentScene && this.currentScene['left']) {
+            this.switch(this.currentScene['left']);
+            document.getElementById('scene-container').style.backgroundImage = `url(${this.currentScene['image']})`;
+        }
+    }
+}
+
 async function initGame() {
     await DialogueEngine.loadStoryFile('dialogues/stories.json');
-
+    await SceneManager.loadSceneFile('scenes/intro_room.json');
     document.getElementById('start-button').addEventListener('click', function() {
         document.getElementById('start-screen').style.display = 'none';
         document.getElementById('game-content').style.display = 'block';
 
         runLoadingAnimation(async () => {
+            SceneManager.switch('room_front');
             await fadeTransition(() => {
                 document.getElementById('loading-screen').style.display = 'none';
             });
@@ -153,4 +200,12 @@ initGame();
 
 document.getElementById('dialogue-box').addEventListener('click', () => {
     DialogueEngine.next();
+});
+
+document.getElementById('scene-right-button').addEventListener('click', () => {
+    SceneManager.right();
+});
+
+document.getElementById('scene-left-button').addEventListener('click', () => {
+    SceneManager.left();
 });

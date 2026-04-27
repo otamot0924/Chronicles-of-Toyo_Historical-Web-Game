@@ -1,0 +1,15 @@
+{
+    "room_front": {
+        "image": "assets/intro-room-front.png",
+        "right": "room_right",
+        "left": "room_left"
+    },
+    "room_right": {
+        "image": "assets/intro-room-right.png",
+        "left": "room_front"
+    },
+    "room_left": {
+        "image": "assets/intro-room-left.png",
+        "right": "room_front"
+    }
+}

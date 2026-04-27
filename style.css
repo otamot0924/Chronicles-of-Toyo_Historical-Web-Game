@@ -106,7 +106,7 @@ body, html {
     position: absolute;
     width: 100%;
     height: 90%;
-    background-image: url('assets/loading_bg.png');
+    background-image: url('assets/loading-bg.png');
     background-color: #997a51; /* 背景圖片載入前的純色佔位 */
     background-size: contain;
     background-position: center;
@@ -160,6 +160,7 @@ body, html {
     max-width: 800px;
     display: flex;
     flex-direction: column;
+    z-index: 10;
 }
 
 #npc-portrait-container {
@@ -169,14 +170,14 @@ body, html {
     background-color: #5f4426;
     margin-bottom: -15px; /* 讓頭像與對話框產生重疊感 */
     margin-left: 20px;
-    z-index: 10;
     overflow: hidden;
 }
 
 #npc-portrait {
+    position: relative;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 #dialogue-box {
@@ -211,6 +212,47 @@ body, html {
     right: 20px;
     animation: bounce 1s infinite;
     color: #f5af2d;
+}
+
+#scene-container {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    bottom: 50px;
+}
+
+#scene-right-button {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-image: url('assets/right-arrow.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+#scene-left-button {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-image: url('assets/left-arrow.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
 }
 
 @keyframes bounce {
