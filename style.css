@@ -255,6 +255,17 @@ body, html {
     cursor: pointer;
 }
 
+.interactive-item {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.interactive-item:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }

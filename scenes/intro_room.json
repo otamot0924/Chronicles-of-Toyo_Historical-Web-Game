@@ -1,15 +1,35 @@
 {
     "room_front": {
-        "image": "assets/intro-room-front.png",
+        "image": "assets/scenes/intro-room-front.png",
         "right": "room_right",
-        "left": "room_left"
+        "left": "room_left",
+        "items": [
+            {
+                "id": "letter_a",
+                "image": "assets/boat.png",
+                "top": "42%",
+                "left": "83%",
+                "width": "10%",
+                "action": "read_letter"
+            }
+        ]
     },
     "room_right": {
-        "image": "assets/intro-room-right.png",
-        "left": "room_front"
+        "image": "assets/scenes/intro-room-right.png",
+        "left": "room_front",
+        "items": [
+            {
+                "id": "letter_b",
+                "image": "assets/boat.png",
+                "top": "30%",
+                "left": "60%",
+                "width": "10%",
+                "action": "read_letter"
+            }
+        ]
     },
     "room_left": {
-        "image": "assets/intro-room-left.png",
+        "image": "assets/scenes/intro-room-left.png",
         "right": "room_front"
     }
 }

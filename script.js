@@ -132,6 +132,33 @@ function runLoadingAnimation(callback) {
     }, 500);
 }
 
+function renderSceneItems(scene) {
+    const itemLayer = document.getElementById('item-layer');
+    itemLayer.innerHTML = '';
+
+    scene.items.forEach(item => {
+        const img = document.createElement('img');
+        img.src = item.image;
+        img.className = 'interactive-item';
+
+        img.style.top = item.top;
+        img.style.left = item.left;
+        img.style.width = item.width;
+
+        img.onclick = () => {
+            handleItemInteraction(item);
+        }
+
+        itemLayer.appendChild(img);
+    });
+}
+
+function handleItemInteraction(item) {
+    if (item.action == 'read_letter') {
+        DialogueEngine.start(item.id);
+    }
+}
+
 const SceneManager = {
     allScenes: {},
     currentScene: null,
@@ -151,6 +178,7 @@ const SceneManager = {
         const scene = this.allScenes[sceneId];
         this.currentScene = scene;
         document.getElementById('scene-container').style.backgroundImage = `url(${this.currentScene['image']})`;
+        
         if (scene['right']) {
             document.getElementById('scene-right-button').style.display = 'block';
         } else {
@@ -161,6 +189,8 @@ const SceneManager = {
         } else {
             document.getElementById('scene-left-button').style.display = 'none';
         }
+
+        renderSceneItems(scene);
     },
 
     right() {
@@ -208,4 +238,11 @@ document.getElementById('scene-right-button').addEventListener('click', () => {
 
 document.getElementById('scene-left-button').addEventListener('click', () => {
     SceneManager.left();
+});
+
+// for testing
+document.getElementById('scene-container').addEventListener('click', (e) => {
+    const x = (e.offsetX / e.target.clientWidth) * 100;
+    const y = (e.offsetY / e.target.clientHeight) * 100;
+    console.log(`位置建議 -> left: ${x.toFixed(2)}%, top: ${y.toFixed(2)}%`);
 });
