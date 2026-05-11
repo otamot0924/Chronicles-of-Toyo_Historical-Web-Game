@@ -132,6 +132,8 @@ function runLoadingAnimation(callback) {
     }, 500);
 }
 
+let VisitedItems = []
+
 function renderSceneItems(scene) {
     const itemLayer = document.getElementById('item-layer');
     itemLayer.innerHTML = '';
@@ -145,6 +147,8 @@ function renderSceneItems(scene) {
         img.style.left = item.left;
         img.style.width = item.width;
 
+        DevTool.init(img, item)
+
         img.onclick = () => {
             handleItemInteraction(item);
         }
@@ -153,9 +157,26 @@ function renderSceneItems(scene) {
     });
 }
 
+function checkRequiredItems(item) {
+    const requiredItems = item['required_items'];
+    return requiredItems.every(rqItem => VisitedItems.includes(rqItem));
+}
+
 function handleItemInteraction(item) {
+    VisitedItems.push(item.id);
     if (item.action == 'read_letter') {
         DialogueEngine.start(item.id);
+    }
+    else if (item.action == 'leave_scene') {
+        // leave scene
+        if (checkRequiredItems(item)) {
+            DialogueEngine.start('leave')
+            SceneManager.switch(item['next_scene'])
+            fadeTransition()
+        }
+        else {
+            DialogueEngine.start('leave_warning')
+        }
     }
 }
 
@@ -208,6 +229,87 @@ const SceneManager = {
     }
 }
 
+// --- 開發者工具模組 ---
+const DevTool = {
+    enabled: false, // 設為 true 開啟功能
+    selectedItem: null,
+    isDragging: false,
+    startX: 0,
+    startY: 0,
+
+    init(itemElement, itemData) {
+        if (!this.enabled) return;
+
+        // 滑鼠按下：開始拖曳
+        itemElement.addEventListener('mousedown', (e) => {
+            this.selectedItem = itemElement;
+            this.isDragging = true;
+            
+            // 計算點擊位置相對於圖片左上角的偏移
+            const rect = itemElement.getBoundingClientRect();
+            this.offsetX = e.clientX - rect.left;
+            this.offsetY = e.clientY - rect.top;
+            
+            itemElement.style.zIndex = 1000; // 拖曳時置頂
+            e.preventDefault();
+        });
+
+        // 滑鼠移動：更新位置
+        window.addEventListener('mousemove', (e) => {
+            if (!this.isDragging || !this.selectedItem) return;
+
+            const container = document.getElementById('scene-container');
+            const containerRect = container.getBoundingClientRect();
+
+            // 計算滑鼠在容器內的百分比位置
+            let leftPercent = ((e.clientX - containerRect.left - this.offsetX) / containerRect.width) * 100;
+            let topPercent = ((e.clientY - containerRect.top - this.offsetY) / containerRect.height) * 100;
+
+            this.selectedItem.style.left = leftPercent.toFixed(2) + '%';
+            this.selectedItem.style.top = topPercent.toFixed(2) + '%';
+        });
+
+        // 滑鼠放開：停止拖曳並印出數值
+        window.addEventListener('mouseup', () => {
+            if (this.isDragging) {
+                this.isDragging = false;
+                this.printStatus();
+            }
+        });
+    },
+
+    // 處理鍵盤縮放 (+ 與 -)
+    handleKeyPress(e) {
+        if (!this.enabled || !this.selectedItem) return;
+
+        // 取得目前寬度百分比
+        let currentWidth = parseFloat(this.selectedItem.style.width);
+        
+        if (e.key === '=' || e.key === '+') { // 加號
+            currentWidth += 0.5;
+        } else if (e.key === '-' || e.key === '_') { // 減號
+            currentWidth -= 0.5;
+        }
+
+        if (currentWidth > 0) {
+            this.selectedItem.style.width = currentWidth.toFixed(2) + '%';
+            this.printStatus();
+        }
+    },
+
+    // 在控制台印出當前座標與大小，方便你複製到 JSON
+    printStatus() {
+        if (!this.selectedItem) return;
+        const id = this.selectedItem.getAttribute('data-id');
+        const left = this.selectedItem.style.left;
+        const top = this.selectedItem.style.top;
+        const width = this.selectedItem.style.width;
+
+        console.log(`%c [道具更新] ID: ${id} `, 'background: #222; color: #bada55; padding: 2px 5px;');
+        console.log(`JSON 配置: "left": "${left}", "top": "${top}", "width": "${width}"`);
+    }
+};
+
 async function initGame() {
     await DialogueEngine.loadStoryFile('dialogues/stories.json');
     await SceneManager.loadSceneFile('scenes/intro_room.json');
@@ -241,8 +343,5 @@ document.getElementById('scene-left-button').addEventListener('click', () => {
 });
 
 // for testing
-document.getElementById('scene-container').addEventListener('click', (e) => {
-    const x = (e.offsetX / e.target.clientWidth) * 100;
-    const y = (e.offsetY / e.target.clientHeight) * 100;
-    console.log(`位置建議 -> left: ${x.toFixed(2)}%, top: ${y.toFixed(2)}%`);
-});
+// 監聽鍵盤事件
+window.addEventListener('keydown', (e) => DevTool.handleKeyPress(e));
