@@ -43,7 +43,8 @@
                     "letter_a",
                     "letter_b"
                 ],
-                "next_scene": "next"
+                "next_scene": "town_outside_east",
+                "next_dialogue": "chapter1_intro"
             }
         ]
     }

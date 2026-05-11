@@ -15,6 +15,7 @@ const DialogueEngine = {
     currentData: [],
     currentIndex: 0,
     typewriterTimer: null,
+    onEnd: null,
 
     async loadStoryFile(url) {
         try {
@@ -27,9 +28,11 @@ const DialogueEngine = {
         }
     },
 
-    start(storyId) {
+    start(storyId, onComplete = null) {
         const story = this.allStories[storyId];
         document.getElementById('dialogue-container').style.display = 'block';
+        this.onEnd = typeof onComplete === 'function' ? onComplete : null;
+
         if (story) {
             this.currentData = story;
             this.currentIndex = 0;
@@ -93,6 +96,10 @@ const DialogueEngine = {
     end() {
         console.log("對話結束");
         document.getElementById('dialogue-container').style.display = 'none';
+        if (this.onEnd) {
+            this.onEnd();
+            this.onEnd = null;
+        }
     }
 };
 
@@ -162,20 +169,28 @@ function checkRequiredItems(item) {
     return requiredItems.every(rqItem => VisitedItems.includes(rqItem));
 }
 
-function handleItemInteraction(item) {
+async function handleItemInteraction(item) {
     VisitedItems.push(item.id);
     if (item.action == 'read_letter') {
         DialogueEngine.start(item.id);
     }
+    else if (item.action == 'enter') {
+        SceneManager.switch(item.id);
+    }
     else if (item.action == 'leave_scene') {
         // leave scene
         if (checkRequiredItems(item)) {
-            DialogueEngine.start('leave')
-            SceneManager.switch(item['next_scene'])
-            fadeTransition()
+            await new Promise(resolve => DialogueEngine.start('leave', resolve));
+
+            await fadeTransition(() => {
+                SceneManager.switch(item['next_scene']);
+            }, 500);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            DialogueEngine.start(item['next_dialogue']);
+
         }
         else {
-            DialogueEngine.start('leave_warning')
+            DialogueEngine.start('leave_warning');
         }
     }
 }
@@ -188,10 +203,44 @@ const SceneManager = {
         try {
             const response = await fetch(url);
             if (!response.ok) throw new Error("無法讀取場景檔案");
-            this.allScenes = await response.json();
-            console.log("場景載入成功！");
+            const sceneData = await response.json();
+            this.allScenes = { ...this.allScenes, ...sceneData };
+            console.log("場景載入成功！", url);
         } catch (error) {
             console.error("載入場景檔案時發生錯誤:", error);
+        }
+    },
+
+    async loadSceneIndex(indexUrl) {
+        try {
+            const response = await fetch(indexUrl);
+            if (!response.ok) throw new Error("無法讀取場景索引檔案");
+            const indexData = await response.json();
+            const sceneFiles = indexData.files || [];
+            const folder = indexUrl.substring(0, indexUrl.lastIndexOf('/') + 1);
+
+            const loadedScenes = await Promise.all(sceneFiles.map(async (filename) => {
+                const sceneResponse = await fetch(folder + filename);
+                if (!sceneResponse.ok) throw new Error("無法讀取場景檔案: " + filename);
+                const data = await sceneResponse.json();
+                
+                // ✨ 新增：標註這組場景來自哪個 JSON 檔案 (章節)
+                Object.keys(data).forEach(sceneId => {
+                    data[sceneId]._fromFile = filename;
+                });
+                return data;
+            }));
+
+            // 合併所有場景
+            this.allScenes = loadedScenes.reduce((acc, scene) => ({ ...acc, ...scene }), {});
+            console.log("所有場景載入完成，共計:", Object.keys(this.allScenes).length);
+
+            // ✨ 重要：資料載入完成後，叫跳轉工具更新選單內容
+            if (window.DevSceneTeleporter) {
+                DevSceneTeleporter.updateMenu();
+            }
+        } catch (error) {
+            console.error("載入場景索引檔案時發生錯誤:", error);
         }
     },
 
@@ -224,6 +273,13 @@ const SceneManager = {
     left() {
         if (this.currentScene && this.currentScene['left']) {
             this.switch(this.currentScene['left']);
+            document.getElementById('scene-container').style.backgroundImage = `url(${this.currentScene['image']})`;
+        }
+    },
+
+    back() {
+        if (this.currentScene && this.currentScene['back']) {
+            this.switch(this.currentScene['back']);
             document.getElementById('scene-container').style.backgroundImage = `url(${this.currentScene['image']})`;
         }
     }
@@ -310,9 +366,82 @@ const DevTool = {
     }
 };
 
+// --- 開發者跳關工具 ---
+const DevSceneTeleporter = {
+    enabled: true,
+
+    init() {
+        if (!this.enabled || document.getElementById('dev-teleport-tool')) return;
+
+        const container = document.createElement('div');
+        container.id = 'dev-teleport-tool';
+        container.innerHTML = `
+            <div style="color: #f5af2d; font-size: 12px; font-weight: bold; margin-bottom: 5px;">DEBUG: 跳轉章節</div>
+            <select id="dev-scene-select" style="width: 100%; margin-bottom: 5px; background: #222; color: #fff;"></select>
+            <button id="dev-teleport-btn" style="width: 100%; background: #f5af2d; border: none; cursor: pointer;">立即跳轉</button>
+        `;
+        
+        // 基本樣式設定 (建議移到 CSS)
+        Object.assign(container.style, {
+            position: 'fixed', top: '10px', right: '10px', zIndex: '9999',
+            background: 'rgba(0,0,0,0.8)', padding: '10px', border: '1px solid #f5af2d', borderRadius: '5px'
+        });
+
+        document.body.appendChild(container);
+        this.updateMenu();
+
+        document.getElementById('dev-teleport-btn').onclick = () => {
+            const selectedScene = document.getElementById('dev-scene-select').value;
+            this.teleport(selectedScene);
+        };
+    },
+
+    updateMenu() {
+        const select = document.getElementById('dev-scene-select');
+        if (!select) return;
+        
+        select.innerHTML = '';
+        
+        // 按檔案名稱 (章節) 進行分組
+        const groups = {};
+        Object.entries(SceneManager.allScenes).forEach(([id, data]) => {
+            const fileName = data._fromFile || "其他";
+            if (!groups[fileName]) groups[fileName] = [];
+            groups[fileName].push(id);
+        });
+
+        // 生成帶有 <optgroup> 的選單
+        for (const [fileName, ids] of Object.entries(groups)) {
+            const group = document.createElement('optgroup');
+            group.label = `章節: ${fileName}`;
+            ids.forEach(id => {
+                const opt = document.createElement('option');
+                opt.value = id;
+                opt.textContent = id;
+                group.appendChild(opt);
+            });
+            select.appendChild(group);
+        }
+    },
+
+    async teleport(sceneId) {
+        console.log("正在跳轉至:", sceneId);
+        // 如果有淡入淡出遮罩就用，沒有就直接切換
+        if (typeof fadeTransition === 'function') {
+            await fadeTransition(() => SceneManager.switch(sceneId));
+        } else {
+            SceneManager.switch(sceneId);
+        }
+    }
+};
+
 async function initGame() {
     await DialogueEngine.loadStoryFile('dialogues/stories.json');
-    await SceneManager.loadSceneFile('scenes/intro_room.json');
+    await SceneManager.loadSceneIndex('scenes/index.json');
+
+    // 初始化開發者工具
+    DevSceneTeleporter.init();
+
     document.getElementById('start-button').addEventListener('click', function() {
         document.getElementById('start-screen').style.display = 'none';
         document.getElementById('game-content').style.display = 'block';

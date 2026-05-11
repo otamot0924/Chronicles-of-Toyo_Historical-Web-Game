@@ -164,8 +164,8 @@ body, html {
 }
 
 #npc-portrait-container {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border: 3px solid #f5af2d;
     background-color: #5f4426;
     margin-bottom: -15px; /* 讓頭像與對話框產生重疊感 */
@@ -257,11 +257,31 @@ body, html {
     transition: transform 0.2s;
 }
 
+#scene-back-button {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-image: url('assets/back-arrow.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
 #scene-right-button:hover {
     filter: brightness(1.2);
 }
 
 #scene-left-button:hover {
+    filter: brightness(1.2);
+}
+
+#scene-back-button:hover {
     filter: brightness(1.2);
 }
 
@@ -279,4 +299,44 @@ body, html {
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
+}
+
+
+
+/* 開發者跳關選單樣式 */
+#dev-teleport-tool {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border: 1px solid #f5af2d;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#dev-teleport-tool label {
+    color: #f5af2d;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#dev-teleport-tool select {
+    background: #492e18;
+    color: white;
+    border: 1px solid #f5af2d;
+    padding: 3px;
+    cursor: pointer;
+}
+
+#dev-teleport-tool button {
+    background: #f5af2d;
+    color: #492e18;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
 }

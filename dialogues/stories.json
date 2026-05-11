@@ -48,5 +48,18 @@
       "portrait": "assets/portraits/lin-hao-neutral.png",
       "text": "是時候出發南下去拜訪好友了。"
     }
+  ],
+
+  "chapter1_intro": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-shocked.png",
+      "text": "這裡怎麼會有一個竹城？"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "先進去看看吧，也許能在這裡稍坐休息。"
+    }
   ]
 }

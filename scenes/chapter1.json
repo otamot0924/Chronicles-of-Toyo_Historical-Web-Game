@@ -1,0 +1,98 @@
+{
+    "town_outside_east": {
+        "image": "assets/scenes/town_outside_east.png",
+        "items": [
+            {
+                "id": "town_inside_left",
+                "image": "assets/items/enter_arrow.png",
+                "top": "56%",
+                "left": "46%",
+                "width": "7.5%",
+                "action": "enter"
+            }
+        ]
+    },
+    "town_outside_north": {
+        "image": "assets/scenes/intro-room-front.png",
+        "items": [
+            {
+                "id": "town_outside_incense",
+                "image": "assets/items/letter.png",
+                "top": "26%",
+                "left": "65%",
+                "width": "12%",
+                "action": "read_letter"
+            }
+        ]
+    },
+    "town_outside_incense": {
+        "image": "assets/scenes/intro-room-front.png",
+        "left": "town_inside",
+        "items": [
+            {
+                "id": "tai_incense",
+                "image": "assets/items/letter.png",
+                "top": "26%",
+                "left": "65%",
+                "width": "12%",
+                "action": "read_letter"
+            },
+            {
+                "id": "ju_incense",
+                "image": "assets/items/letter.png",
+                "top": "26%",
+                "left": "65%",
+                "width": "12%",
+                "action": "read_letter"
+            }
+        ]
+    },
+    
+    "town_inside_left": {
+        "image": "assets/scenes/intro-room-right.png",
+        "right": "town_inside_right",
+        "items": [
+            {
+                "id": "town_inside_incense",
+                "image": "assets/items/letter.png",
+                "top": "40%",
+                "left": "47%",
+                "width": "13%",
+                "action": "read_letter"
+            }
+        ]
+    },
+    "town_inside_right": {
+        "image": "assets/scenes/intro-room-left.png",
+        "left": "town_inside_left",
+        "items": [
+            {
+                "id": "town_outside_north",
+                "image": "assets/items/door.png",
+                "top": "24%",
+                "left": "36%",
+                "width": "26%",
+                "action": "enter",
+                "required_items": [
+                    "letter_a",
+                    "letter_b"
+                ],
+                "next_scene": "next"
+            }
+        ]
+    },
+    "town_inside_incense": {
+        "image": "assets/scenes/intro-room-front.png",
+        "down": "town_inside",
+        "items": [
+            {
+                "id": "incense",
+                "image": "assets/items/letter.png",
+                "top": "26%",
+                "left": "65%",
+                "width": "12%",
+                "action": "read_letter"
+            }
+        ]
+    }
+}
