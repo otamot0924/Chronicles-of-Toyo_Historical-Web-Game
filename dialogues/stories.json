@@ -35,14 +35,14 @@
       "text": "三年前因捻亂使我錯失會試機會，也許他知道其他的機會。"
     }
   ],
-  "leave_warning": [
+  "intro_leave_warning": [
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
       "text": "總感覺似乎還有信件還未閱讀...。"
     }
   ],
-  "leave": [
+  "intro_leave": [
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
@@ -118,6 +118,70 @@
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
       "text": "竹城中央有個奇怪的祭壇，也許應該先仔細看看...。"
+    }
+  ],
+  "town_outside_north": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "看來我沒走錯地方，就是往這裡了。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "也許白巾附近也會有遺落的訊息。"
+    }
+  ],
+  "white_towel": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "...「五祖化小路一條，導我逃生。」"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-angry.png",
+      "text": "一派胡言，我倒要看看他還能說出什麼妄語。"
+    }
+  ],
+  "town_outside_incense": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "果然有香案設於此。"
+    }
+  ],
+  "tai_incense": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "戴潮春長生祿位？果然是天地會的儀式。"
+    }
+  ],
+  "ju_incense": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "朱一貴？林爽文？先賢？"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-angry.png",
+      "text": "他們竟信奉這兩個逆首，甚至稱其為先賢？果真是逆賊！"
+    }
+  ],
+  "chapter_1_leave": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "看來這個竹城不適合多做停留，但確實是一個收集資料的好地方。"
+    }
+  ],
+  "chapter_1_leave_warning": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "似乎還有其他線索沒有搜查...。"
     }
   ]
 }

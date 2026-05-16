@@ -13,41 +13,6 @@
             }
         ]
     },
-    "town_outside_north": {
-        "image": "assets/scenes/intro-room-front.png",
-        "items": [
-            {
-                "id": "town_outside_incense",
-                "image": "assets/items/letter.png",
-                "top": "26%",
-                "left": "65%",
-                "width": "12%",
-                "action": "read"
-            }
-        ]
-    },
-    "town_outside_incense": {
-        "image": "assets/scenes/intro-room-front.png",
-        "left": "town_inside",
-        "items": [
-            {
-                "id": "tai_incense",
-                "image": "assets/items/letter.png",
-                "top": "26%",
-                "left": "65%",
-                "width": "12%",
-                "action": "read"
-            },
-            {
-                "id": "ju_incense",
-                "image": "assets/items/letter.png",
-                "top": "26%",
-                "left": "65%",
-                "width": "12%",
-                "action": "read"
-            }
-        ]
-    },
     "town_inside_left": {
         "image": "assets/scenes/town-inside-left.png",
         "right": "town_inside_right",
@@ -76,8 +41,69 @@
                 "required_items": [
                     "town_inside_incense"
                 ],
-                "next_scene": "town_outside_north",
+                "next_dialogue": "town_outside_north",
                 "leave_warning": "leave_town_warning"
+            }
+        ]
+    },
+    "town_outside_north": {
+        "image": "assets/scenes/town-outside-north.png",
+        "items": [
+            {
+                "id": "white_towel",
+                "image": "assets/items/white-towel.png",
+                "top": "60%",
+                "left": "65%",
+                "width": "13.5%",
+                "action": "read"
+            },
+            {
+                "id": "town_outside_incense",
+                "image": "assets/items/town-outside-incense.png",
+                "top": "35%",
+                "left": "20.5%",
+                "width": "21.5%",
+                "action": "enter",
+                "next_dialogue": "town_outside_incense"
+            },
+            {
+                "id": "chapter_1_leave",
+                "image": "assets/items/enter-arrow.png",
+                "top": "58%",
+                "left": "45%",
+                "width": "7.5%",
+                "action": "leave_scene",
+                "required_items": [
+                    "white_towel",
+                    "tai_incense",
+                    "ju_incense"
+                ],
+                "next_scene": "",
+                "leave_dialogue": "chapter_1_leave",
+                "leave_warning": "chapter_1_leave_warning",
+                "next_dialogue": ""
+            }
+        ]
+    },
+    "town_outside_incense": {
+        "image": "assets/scenes/town-outside-incense.png",
+        "left": "town_outside_north",
+        "items": [
+            {
+                "id": "tai_incense",
+                "image": "assets/items/tai-incense.png",
+                "top": "26%",
+                "left": "21%",
+                "width": "29%",
+                "action": "read"
+            },
+            {
+                "id": "ju_incense",
+                "image": "assets/items/ju-incense.png",
+                "top": "26%",
+                "left": "50.5%",
+                "width": "29%",
+                "action": "read"
             }
         ]
     }

@@ -44,8 +44,8 @@
                     "letter_b"
                 ],
                 "next_scene": "town_outside_east",
-                "leave_dialogue": "leave",
-                "leave_warning": "leave_warning",
+                "leave_dialogue": "intro_leave",
+                "leave_warning": "intro_leave_warning",
                 "next_dialogue": "chapter1_intro"
             }
         ]

@@ -376,7 +376,7 @@ const DevTool = {
 
 // --- 開發者跳關工具 ---
 const DevSceneTeleporter = {
-    enabled: true,
+    enabled: false,
 
     init() {
         if (!this.enabled || document.getElementById('dev-teleport-tool')) return;
