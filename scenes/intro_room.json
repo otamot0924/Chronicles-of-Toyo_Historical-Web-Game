@@ -10,7 +10,7 @@
                 "top": "26%",
                 "left": "65%",
                 "width": "12%",
-                "action": "read_letter"
+                "action": "read"
             }
         ]
     },
@@ -24,7 +24,7 @@
                 "top": "40%",
                 "left": "47%",
                 "width": "13%",
-                "action": "read_letter"
+                "action": "read"
             }
         ]
     },
@@ -44,6 +44,8 @@
                     "letter_b"
                 ],
                 "next_scene": "town_outside_east",
+                "leave_dialogue": "leave",
+                "leave_warning": "leave_warning",
                 "next_dialogue": "chapter1_intro"
             }
         ]

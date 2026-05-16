@@ -30,6 +30,7 @@ const DialogueEngine = {
 
     start(storyId, onComplete = null) {
         const story = this.allStories[storyId];
+
         document.getElementById('dialogue-container').style.display = 'block';
         this.onEnd = typeof onComplete === 'function' ? onComplete : null;
 
@@ -113,7 +114,7 @@ function runLoadingAnimation(callback) {
     dialogueContainer.style.display = 'none';
 
     let progress = 0;
-    const animationDuration = 5000;
+    const animationDuration = 3000;
     const intervalTime = 20;
     const totalFrames = animationDuration / intervalTime;
     const increment = 100 / totalFrames;
@@ -166,31 +167,38 @@ function renderSceneItems(scene) {
 
 function checkRequiredItems(item) {
     const requiredItems = item['required_items'];
+    if (!requiredItems || DevSceneTeleporter.enabled) {
+        return true;
+    }
     return requiredItems.every(rqItem => VisitedItems.includes(rqItem));
 }
 
 async function handleItemInteraction(item) {
     VisitedItems.push(item.id);
-    if (item.action == 'read_letter') {
+    if (item.action == 'read') {
         DialogueEngine.start(item.id);
     }
-    else if (item.action == 'enter') {
-        SceneManager.switch(item.id);
-    }
-    else if (item.action == 'leave_scene') {
-        // leave scene
+    else if (item.action == 'leave_scene' || item.action == 'enter') {
         if (checkRequiredItems(item)) {
-            await new Promise(resolve => DialogueEngine.start('leave', resolve));
 
+            if (item['leave_dialogue']) {
+                await new Promise(resolve => DialogueEngine.start(item['leave_dialogue'], resolve)); // start leave scene dialogue
+            }
+            
             await fadeTransition(() => {
-                SceneManager.switch(item['next_scene']);
+                SceneManager.switch(item['next_scene'] || item.id); // switch scene
             }, 500);
             await new Promise(resolve => setTimeout(resolve, 1000));
-            DialogueEngine.start(item['next_dialogue']);
+
+            if (item['next_dialogue']) {
+                DialogueEngine.start(item['next_dialogue'] || item.id); // start scene init dialogue
+            }
 
         }
         else {
-            DialogueEngine.start('leave_warning');
+            if (item['leave_warning']) {
+                DialogueEngine.start(item['leave_warning']);
+            }
         }
     }
 }
@@ -287,7 +295,7 @@ const SceneManager = {
 
 // --- 開發者工具模組 ---
 const DevTool = {
-    enabled: false, // 設為 true 開啟功能
+    enabled: true, // 設為 true 開啟功能
     selectedItem: null,
     isDragging: false,
     startX: 0,

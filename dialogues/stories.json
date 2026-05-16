@@ -50,6 +50,8 @@
     }
   ],
 
+
+
   "chapter1_intro": [
     {
       "name": "林豪",
@@ -60,6 +62,62 @@
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
       "text": "先進去看看吧，也許能在這裡稍坐休息。"
+    }
+  ],
+  "town_inside_left": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-shocked.png",
+      "text": "這...這是什麼？"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "為什麼這裡會有一個祭壇？難道是附近居民設立的？"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "但這是祭祀甚麼的？"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "上前看看吧。"
+    }
+  ],
+  "town_inside_incense": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-shocked.png",
+      "text": "這是...五祖？這裡為何會有祭祀五祖的香案？"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "這是什麼？"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "「執香默禱，奉天地香、父母香、兄弟香，宣示十誡後出城。」"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "「牽白巾，北門外香案授以八卦。」"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "這難道是天地會儀式？順著這個儀式進程也許能發現更多線索。"
+    }
+  ],
+  "leave_town_warning": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "竹城中央有個奇怪的祭壇，也許應該先仔細看看...。"
     }
   ]
 }
