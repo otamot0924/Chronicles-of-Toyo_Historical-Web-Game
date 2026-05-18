@@ -206,6 +206,14 @@ body, html {
     margin: 0;
 }
 
+/* 對話框金色重點字 */
+.dialogue-gold {
+    color: #f5af2d;
+    font-weight: bold;
+    text-shadow: 0 0 4px rgba(245, 175, 45, 0.6);
+    display: inline-block; /* 防止因縮放產生奇怪的斷行 */
+}
+
 .next-indicator {
     position: absolute;
     bottom: 10px;

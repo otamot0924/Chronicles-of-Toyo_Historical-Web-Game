@@ -3,50 +3,70 @@
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "東渡來此（臺灣）已有一段時日，訪幽尋勝增加我的見聞和閱歷。"
+      "text": "東渡來此已有一段時日。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "先前我因捻亂而痛失會試機會。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "所幸認識了[g]林占梅[/g]，聽到許多消息，增長我的見聞，也算是意外之喜吧。"
     }
   ],
   "letter_a": [
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "這是淡水的族人邀我前往淡水時寄的來信。"
+      "text": "這是淡水族人當時邀我前往淡水時寄的來信。"
     },
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "東渡來此（臺灣）期望能尋得不同的機遇。"
+      "text": "我既無緣會試，當時答應便是期望能有所機遇。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "如今倒也算如願？"
     }
   ],
   "letter_b": [
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "這是好友林向榮的回信。"
+      "text": "這是好友[g]林向榮[/g]的回信。"
     },
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "如今我已到東瀛（臺灣），我們早已約好我南下拜訪他。"
+      "text": "當時與他約好南下見面，但因遇上[g]戴潮春叛亂[/g]，出行受阻，無法如期赴約。"
     },
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "三年前因捻亂使我錯失會試機會，也許他知道其他的機會。"
+      "text": "不知此次再度南下能否成功碰面？"
     }
   ],
   "intro_leave_warning": [
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "總感覺似乎還有信件還未閱讀...。"
+      "text": "總感覺似乎還有[g]信件[/g]還未閱讀...。"
     }
   ],
   "intro_leave": [
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "是時候出發南下去拜訪好友了。"
+      "text": "受[g]林占梅[/g]所托編撰此次事件，已約好實地勘察，多方取證才能確保史實。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "是時候出發了。"
     }
   ],
 
@@ -59,9 +79,9 @@
       "text": "這裡怎麼會有一個竹城？"
     },
     {
-      "name": "林豪",
-      "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "先進去看看吧，也許能在這裡稍坐休息。"
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "我們先進去看看吧，也許能在這裡稍作休息。"
     }
   ],
   "town_inside_left": [
@@ -73,7 +93,7 @@
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "為什麼這裡會有一個祭壇？難道是附近居民設立的？"
+      "text": "為什麼這裡會有一個[g]祭壇[/g]？難道是附近居民設立的？"
     },
     {
       "name": "林豪",
@@ -81,9 +101,19 @@
       "text": "但這是祭祀甚麼的？"
     },
     {
-      "name": "林豪",
-      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "看起來並不像常見的信奉。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
       "text": "上前看看吧。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "也許會是有用的資料。"
     }
   ],
   "town_inside_incense": [
@@ -91,6 +121,11 @@
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-shocked.png",
       "text": "這是...五祖？這裡為何會有祭祀五祖的香案？"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-shocked.png",
+      "text": "[g]五祖[/g]？！"
     },
     {
       "name": "林豪",
@@ -110,26 +145,41 @@
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "這難道是天地會儀式？順著這個儀式進程也許能發現更多線索。"
+      "text": "這難道是你與我說過的[g]天地會[/g]儀式？"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "沒錯，看來這是天地會入會儀式舉辦的據點之一。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "我們去到[g]北門外[/g]看看吧。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "也許能找到更多遺留的紀錄。"
     }
   ],
   "leave_town_warning": [
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "竹城中央有個奇怪的祭壇，也許應該先仔細看看...。"
+      "text": "竹城中央有個奇怪的[g]祭壇[/g]，也許應該先仔細看看...。"
     }
   ],
   "town_outside_north": [
     {
-      "name": "林豪",
-      "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "看來我沒走錯地方，就是往這裡了。"
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "看來我們沒走錯地方，就是往這裡了。"
     },
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "也許白巾附近也會有遺落的訊息。"
+      "text": "也許[g]白巾[/g]附近也會有遺落的訊息。"
     }
   ],
   "white_towel": [
@@ -139,42 +189,72 @@
       "text": "...「五祖化小路一條，導我逃生。」"
     },
     {
-      "name": "林豪",
-      "portrait": "assets/portraits/lin-hao-angry.png",
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-angry.png",
       "text": "一派胡言，我倒要看看他還能說出什麼妄語。"
     }
   ],
   "town_outside_incense": [
     {
-      "name": "林豪",
-      "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "果然有香案設於此。"
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "果然香案也沒有移去。"
     }
   ],
   "tai_incense": [
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "戴潮春長生祿位？果然是天地會的儀式。"
+      "text": "這是[g]戴潮春[/g]的長生祿位？"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "原本還有所懷疑，現在看來果然是天地會的儀式。"
     }
   ],
   "ju_incense": [
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "朱一貴？林爽文？先賢？"
+      "text": "[g]朱一貴[/g]？[g]林爽文[/g]？先賢？"
     },
     {
-      "name": "林豪",
-      "portrait": "assets/portraits/lin-hao-angry.png",
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-angry.png",
       "text": "他們竟信奉這兩個逆首，甚至稱其為先賢？果真是逆賊！"
     }
   ],
   "chapter_1_leave": [
     {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "沒想到這個竹城是天地會所建。"
+    },
+    {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "看來這個竹城不適合多做停留，但確實是一個收集資料的好地方。"
+      "text": "是啊，沒想到誤打誤撞碰到了這裡。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "我將這些紀錄下來了，編撰時能用作紀錄參考。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "好，此地不宜久留。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "到時要派人將這裡毀去，免得讓人誤近邪教。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "好，我們走吧。"
     }
   ],
   "chapter_1_leave_warning": [

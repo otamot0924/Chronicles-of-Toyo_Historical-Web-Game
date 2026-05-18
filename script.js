@@ -17,6 +17,9 @@ const DialogueEngine = {
     typewriterTimer: null,
     onEnd: null,
 
+    isTyping: false,
+    currentTextChars: [],
+
     async loadStoryFile(url) {
         try {
             const response = await fetch(url);
@@ -43,47 +46,76 @@ const DialogueEngine = {
         }
     },
 
+    parseRichText(text) {
+        const chars = [];
+        let isGold = false;
+        let i = 0;
+        while (i < text.length) {
+            if (text.substring(i, i + 3) === "[g]") {
+                isGold = true;
+                i += 3;
+            } else if (text.substring(i, i + 4) === "[/g]") {
+                isGold = false;
+                i += 4;
+            } else {
+                chars.push({ char: text.charAt(i), isGold: isGold });
+                i++;
+            }
+        }
+        return chars;
+    },
+
     updateUI() {
         const line = this.currentData[this.currentIndex];
-        const displayElement = document.getElementById('dialogue-text');
-
+        
         if (!line.name && !line.portrait) {
             document.getElementById('npc-name').innerText = '';
             document.getElementById('npc-portrait-container').style.display = 'none';
-        }
-        else {
+        } else {
             document.getElementById('npc-name').innerText = line.name;
             document.getElementById('npc-portrait-container').style.display = 'block';
             document.getElementById('npc-portrait').src = line.portrait;
         }
 
-        this.typewriter(displayElement, line.text, 35);
+        const displayElement = document.getElementById('dialogue-text');
+        
+        this.currentTextChars = this.parseRichText(line.text);
+        this.typewriter(displayElement, this.currentTextChars, 30); // 30毫秒一字
     },
 
-    typewriter(element, text, speed) {
-
+    typewriter(element, chars, speed) {
         clearInterval(this.typewriterTimer);
-        
-        element.innerText = "";
+        element.innerHTML = ''; // 改用 innerHTML
         let charIndex = 0;
+        this.isTyping = true;
 
         this.typewriterTimer = setInterval(() => {
-            if (charIndex < text.length) {
-                element.innerText += text.charAt(charIndex);
+            if (charIndex < chars.length) {
+                const c = chars[charIndex];
+                if (c.isGold) {
+                    element.innerHTML += `<span class="dialogue-gold">${c.char}</span>`;
+                } else {
+                    element.innerHTML += c.char;
+                }
                 charIndex++;
             } else {
                 clearInterval(this.typewriterTimer);
+                this.isTyping = false;
             }
         }, speed);
     },
 
+    getLineHTML(chars) {
+        return chars.map(c => c.isGold ? `<span class="dialogue-gold">${c.char}</span>` : c.char).join('');
+    },
+
     next() {
-        const line = this.currentData[this.currentIndex];
         const displayElement = document.getElementById('dialogue-text');
 
-        if (displayElement.innerText.length < line.text.length) {
+        if (this.isTyping) {
             clearInterval(this.typewriterTimer);
-            displayElement.innerText = line.text;
+            this.isTyping = false;
+            displayElement.innerHTML = this.getLineHTML(this.currentTextChars);
         } else {
             this.currentIndex++;
             if (this.currentIndex < this.currentData.length) {
@@ -97,10 +129,7 @@ const DialogueEngine = {
     end() {
         console.log("對話結束");
         document.getElementById('dialogue-container').style.display = 'none';
-        if (this.onEnd) {
-            this.onEnd();
-            this.onEnd = null;
-        }
+        if (this.onEnd) this.onEnd();
     }
 };
 
@@ -295,7 +324,7 @@ const SceneManager = {
 
 // --- 開發者工具模組 ---
 const DevTool = {
-    enabled: true, // 設為 true 開啟功能
+    enabled: false, // 設為 true 開啟功能
     selectedItem: null,
     isDragging: false,
     startX: 0,
