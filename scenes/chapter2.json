@@ -1,0 +1,104 @@
+{
+    "town_gate": {
+        "image": "assets/scenes/town-gate.png",
+        "items": [
+            {
+                "id": "street",
+                "image": "assets/items/enter-arrow.png",
+                "top": "56%",
+                "left": "46%",
+                "width": "7.5%",
+                "action": "enter",
+                "next_dialogue": "street"
+            }
+        ]
+    },
+    "street": {
+        "image": "assets/scenes/street.png",
+        "items": [
+            {
+                "id": "street_talk_1",
+                "image": "assets/items/enter-arrow.png",
+                "top": "56%",
+                "left": "46%",
+                "width": "7.5%",
+                "action": "read"
+            },
+            {
+                "id": "street_talk_2",
+                "image": "assets/items/enter-arrow.png",
+                "top": "56%",
+                "left": "46%",
+                "width": "7.5%",
+                "action": "read"
+            },
+            {
+                "id": "room",
+                "image": "assets/items/enter-arrow.png",
+                "top": "56%",
+                "left": "46%",
+                "width": "7.5%",
+                "action": "enter",
+                "next_dialogue": "room"
+            }
+        ]
+    },
+    "room": {
+        "image": "assets/scenes/room.png",
+        "items": [
+            {
+                "id": "room_talk_1",
+                "image": "assets/items/enter-arrow.png",
+                "top": "56%",
+                "left": "46%",
+                "width": "7.5%",
+                "action": "read"
+            },
+            {
+                "id": "ruin",
+                "image": "assets/items/enter-arrow.png",
+                "top": "56%",
+                "left": "46%",
+                "width": "7.5%",
+                "action": "enter",
+                "next_dialogue": "ruin"
+            }
+        ]
+    },
+    "ruin": {
+        "image": "assets/scenes/ruin.png",
+        "items": [
+            {
+                "id": "station",
+                "image": "assets/items/enter-arrow.png",
+                "top": "56%",
+                "left": "46%",
+                "width": "7.5%",
+                "action": "enter",
+                "next_dialogue": "station"
+            },
+            {
+                "id": "tomb",
+                "image": "assets/items/enter-arrow.png",
+                "top": "56%",
+                "left": "46%",
+                "width": "7.5%",
+                "action": "enter",
+                "next_dialogue": "tomb"
+            }
+        ]
+    },
+    "tomb": {
+        "image": "assets/scenes/tomb.png",
+        "items": [
+            {
+                "id": "tomb_talk_1",
+                "image": "assets/items/enter-arrow.png",
+                "top": "56%",
+                "left": "46%",
+                "width": "7.5%",
+                "action": "read"
+            }
+        ]
+    }
+}

@@ -263,5 +263,168 @@
       "portrait": "assets/portraits/lin-hao-neutral.png",
       "text": "似乎還有其他線索沒有搜查...。"
     }
+  ],
+
+
+
+  "chapter_2_intro": [
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "我們到了。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "我們快進去看看吧，若無實地探尋，寫出的紀錄仍是缺乏了真實性。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "我們先找個地方落腳，再四處看看。"
+    }
+  ],
+  "street": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "彰化縣城也不算小，街道卻如此破敗。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "當時逆賊入城後，與官兵發生巷戰。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "多處的街道都成了戰場，因此街道多破敗、混亂，還未從戰爭中恢復。"
+    }
+  ],
+  "street_talk_1": [
+    {
+      "name": "百姓1",
+      "portrait": "assets/portraits/civilian-neutral.png",
+      "text": "聽說當時賊黨圍聚彰化，孔道令鹿港人援助，卻無回應。"
+    },
+    {
+      "name": "百姓2",
+      "portrait": "assets/portraits/civilian-neutral.png",
+      "text": "若是當時有援兵支援，也許戰事不會這麼慘烈。"
+    },
+    {
+      "name": "百姓1",
+      "portrait": "assets/portraits/civilian-neutral.png",
+      "text": "唉！戰事起，人人自危，若是我也不敢出兵相助，誰知會不會被逆賊盯上。"
+    }
+  ],
+  "street_talk_2": [
+    {
+      "name": "百姓3",
+      "portrait": "assets/portraits/civilian-neutral.png",
+      "text": "據說當時逆賊入城是有內應幫忙。"
+    },
+    {
+      "name": "百姓4",
+      "portrait": "assets/portraits/civilian-neutral.png",
+      "text": "是阿，當時逆賊假意求和，讓官兵放下戒心，防守放寬才給了他們可趁之機。"
+    }
+  ],
+  "room": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "當時真的沒有援軍相助嗎。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "應該是的，畢竟戰時人人自危，大家都在觀望。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "亂世裡，若選錯邊，便容易賠上性命"
+    }
+  ],
+  "room_talk_1": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "待我先將剛剛所見所聞記錄一番，稍後我們再出門探索。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "好，要出門時叫我一聲就好。"
+    }
+  ],
+  "station": [
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "這裡便是火藥局了。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "這裡便是你同我說的，李得志與賊人同歸於盡的地方？"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "沒錯。"
+    }
+  ],
+  "station_talk_1": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "此處已成廢墟，到處都是燒焦的痕跡。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "是阿，當時李得志被賊人劫持，要求交代官銀位置。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "而當時，李得志將數百賊人誘至火藥局，他、家眷、賊人都一同被燒死了。"
+    },
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "想來他心中充斥的是國家大愛，為其獻軀。"
+    }
+  ],  
+  "tomb": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "這些墓...都是當時戰死的人嗎。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "是啊，當時戰死的人都埋在了這裡。"
+    }
+  ],
+  "tomb_talk_1": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "為何有的墓碑上沒有刻上姓名？"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "當時戰事慘烈，結束後，能認出來的自然是刻碑安葬。"
+    },
+    {
+      "name": "林占梅",
+      "portrait": "assets/portraits/mei-neutral.png",
+      "text": "但有的屍首已無法辨認身份，便只能安葬無名墓。"
+    }
   ]
 }

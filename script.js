@@ -324,7 +324,7 @@ const SceneManager = {
 
 // --- 開發者工具模組 ---
 const DevTool = {
-    enabled: false, // 設為 true 開啟功能
+    enabled: true, // 設為 true 開啟功能
     selectedItem: null,
     isDragging: false,
     startX: 0,
@@ -405,7 +405,7 @@ const DevTool = {
 
 // --- 開發者跳關工具 ---
 const DevSceneTeleporter = {
-    enabled: false,
+    enabled: true,
 
     init() {
         if (!this.enabled || document.getElementById('dev-teleport-tool')) return;
