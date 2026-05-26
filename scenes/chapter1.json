@@ -78,7 +78,7 @@
                     "tai_incense",
                     "ju_incense"
                 ],
-                "next_scene": "",
+                "next_scene": "town_gate",
                 "leave_dialogue": "chapter_1_leave",
                 "leave_warning": "chapter_1_leave_warning",
                 "next_dialogue": "chapter_2_intro"

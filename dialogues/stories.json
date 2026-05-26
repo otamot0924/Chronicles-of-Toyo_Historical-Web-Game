@@ -304,30 +304,37 @@
   "street_talk_1": [
     {
       "name": "百姓1",
-      "portrait": "assets/portraits/civilian-neutral.png",
+      "portrait": "assets/portraits/civilian-neutral-1.png",
       "text": "聽說當時賊黨圍聚彰化，孔道令鹿港人援助，卻無回應。"
     },
     {
       "name": "百姓2",
-      "portrait": "assets/portraits/civilian-neutral.png",
+      "portrait": "assets/portraits/civilian-neutral-2.png",
       "text": "若是當時有援兵支援，也許戰事不會這麼慘烈。"
     },
     {
       "name": "百姓1",
-      "portrait": "assets/portraits/civilian-neutral.png",
+      "portrait": "assets/portraits/civilian-neutral-1.png",
       "text": "唉！戰事起，人人自危，若是我也不敢出兵相助，誰知會不會被逆賊盯上。"
     }
   ],
   "street_talk_2": [
     {
       "name": "百姓3",
-      "portrait": "assets/portraits/civilian-neutral.png",
+      "portrait": "assets/portraits/civilian-neutral-1.png",
       "text": "據說當時逆賊入城是有內應幫忙。"
     },
     {
       "name": "百姓4",
-      "portrait": "assets/portraits/civilian-neutral.png",
+      "portrait": "assets/portraits/civilian-neutral-2.png",
       "text": "是阿，當時逆賊假意求和，讓官兵放下戒心，防守放寬才給了他們可趁之機。"
+    }
+  ],
+  "leave_street_warning": [
+    {
+      "name": "林豪",
+      "portrait": "assets/portraits/lin-hao-neutral.png",
+      "text": "先跟街道上的[g]百姓們[/g]聊聊吧。"
     }
   ],
   "room": [
@@ -368,15 +375,13 @@
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
-      "text": "這裡便是你同我說的，李得志與賊人同歸於盡的地方？"
+      "text": "這裡便是你同我說的，[g]李得志[/g]與賊人同歸於盡的地方？"
     },
     {
       "name": "林占梅",
       "portrait": "assets/portraits/mei-neutral.png",
       "text": "沒錯。"
-    }
-  ],
-  "station_talk_1": [
+    },
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",
@@ -397,7 +402,7 @@
       "portrait": "assets/portraits/lin-hao-neutral.png",
       "text": "想來他心中充斥的是國家大愛，為其獻軀。"
     }
-  ],  
+  ],
   "tomb": [
     {
       "name": "林豪",
@@ -408,9 +413,7 @@
       "name": "林占梅",
       "portrait": "assets/portraits/mei-neutral.png",
       "text": "是啊，當時戰死的人都埋在了這裡。"
-    }
-  ],
-  "tomb_talk_1": [
+    },
     {
       "name": "林豪",
       "portrait": "assets/portraits/lin-hao-neutral.png",

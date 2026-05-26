@@ -5,7 +5,7 @@
             {
                 "id": "street",
                 "image": "assets/items/enter-arrow.png",
-                "top": "56%",
+                "top": "60%",
                 "left": "46%",
                 "width": "7.5%",
                 "action": "enter",
@@ -18,28 +18,33 @@
         "items": [
             {
                 "id": "street_talk_1",
-                "image": "assets/items/enter-arrow.png",
-                "top": "56%",
-                "left": "46%",
-                "width": "7.5%",
+                "image": "assets/items/street_talk.png",
+                "top": "43%",
+                "left": "28%",
+                "width": "20%",
                 "action": "read"
             },
             {
                 "id": "street_talk_2",
-                "image": "assets/items/enter-arrow.png",
-                "top": "56%",
-                "left": "46%",
-                "width": "7.5%",
+                "image": "assets/items/street_talk.png",
+                "top": "47%",
+                "left": "52%",
+                "width": "14.5%",
                 "action": "read"
             },
             {
                 "id": "room",
                 "image": "assets/items/enter-arrow.png",
-                "top": "56%",
-                "left": "46%",
-                "width": "7.5%",
+                "top": "53%",
+                "left": "47%",
+                "width": "5%",
                 "action": "enter",
-                "next_dialogue": "room"
+                "required_items": [
+                    "street_talk_1",
+                    "street_talk_2"
+                ],
+                "next_dialogue": "room",
+                "leave_warning": "leave_street_warning"
             }
         ]
     },
@@ -48,40 +53,31 @@
         "items": [
             {
                 "id": "room_talk_1",
-                "image": "assets/items/enter-arrow.png",
-                "top": "56%",
-                "left": "46%",
-                "width": "7.5%",
+                "image": "assets/items/chairs.png",
+                "top": "30%",
+                "left": "37%",
+                "width": "28%",
                 "action": "read"
             },
             {
-                "id": "ruin",
-                "image": "assets/items/enter-arrow.png",
-                "top": "56%",
-                "left": "46%",
-                "width": "7.5%",
-                "action": "enter",
-                "next_dialogue": "ruin"
-            }
-        ]
-    },
-    "ruin": {
-        "image": "assets/scenes/ruin.png",
-        "items": [
-            {
                 "id": "station",
                 "image": "assets/items/enter-arrow.png",
-                "top": "56%",
-                "left": "46%",
+                "top": "37%",
+                "left": "23%",
                 "width": "7.5%",
                 "action": "enter",
                 "next_dialogue": "station"
-            },
+            }
+        ]
+    },
+    "station": {
+        "image": "assets/scenes/station.png",
+        "items": [
             {
                 "id": "tomb",
                 "image": "assets/items/enter-arrow.png",
-                "top": "56%",
-                "left": "46%",
+                "top": "47%",
+                "left": "47%",
                 "width": "7.5%",
                 "action": "enter",
                 "next_dialogue": "tomb"
@@ -91,14 +87,6 @@
     "tomb": {
         "image": "assets/scenes/tomb.png",
         "items": [
-            {
-                "id": "tomb_talk_1",
-                "image": "assets/items/enter-arrow.png",
-                "top": "56%",
-                "left": "46%",
-                "width": "7.5%",
-                "action": "read"
-            }
         ]
     }
 }
