@@ -87,6 +87,17 @@
     "tomb": {
         "image": "assets/scenes/tomb.png",
         "items": [
+            {
+                "id": "chapter_2_leave",
+                "image": "assets/items/enter-arrow.png",
+                "top": "39%",
+                "left": "45%",
+                "width": "7.5%",
+                "action": "leave_scene",
+                "next_scene": "field",
+                "leave_dialogue": "chapter_2_leave",
+                "next_dialogue": "chapter_3_intro"
+            }
         ]
     }
 }

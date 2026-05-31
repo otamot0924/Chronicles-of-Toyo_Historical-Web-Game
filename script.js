@@ -205,7 +205,14 @@ function checkRequiredItems(item) {
 async function handleItemInteraction(item) {
     VisitedItems.push(item.id);
     if (item.action == 'read') {
-        DialogueEngine.start(item.id);
+        if (item['required_items'] && !checkRequiredItems(item)) {
+            if (item['read_warning']) {
+                DialogueEngine.start(item['read_warning']);
+            }
+        }
+        else {
+            DialogueEngine.start(item.id);
+        }
     }
     else if (item.action == 'leave_scene' || item.action == 'enter') {
         if (checkRequiredItems(item)) {
