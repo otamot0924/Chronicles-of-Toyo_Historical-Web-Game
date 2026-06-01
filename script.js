@@ -10,8 +10,17 @@ async function fadeTransition(callback, duration = 500) {
     mask.classList.remove('active');
 }
 
+function showGameOver() {
+    const gameOverScreen = document.getElementById('game-over-screen');
+    if (gameOverScreen) {
+        gameOverScreen.style.display = 'flex';
+        gameOverScreen.classList.add('active');
+    }
+}
+
 const DialogueEngine = {
     allStories: {},
+    currentStoryId: null,
     currentData: [],
     currentIndex: 0,
     typewriterTimer: null,
@@ -38,6 +47,7 @@ const DialogueEngine = {
         this.onEnd = typeof onComplete === 'function' ? onComplete : null;
 
         if (story) {
+            this.currentStoryId = storyId;
             this.currentData = story;
             this.currentIndex = 0;
             this.updateUI();
@@ -129,6 +139,11 @@ const DialogueEngine = {
     end() {
         console.log("對話結束");
         document.getElementById('dialogue-container').style.display = 'none';
+
+        if (this.currentStoryId === 'road') {
+            showGameOver();
+        }
+
         if (this.onEnd) this.onEnd();
     }
 };
@@ -412,7 +427,7 @@ const DevTool = {
 
 // --- 開發者跳關工具 ---
 const DevSceneTeleporter = {
-    enabled: false,
+    enabled: true,
 
     init() {
         if (!this.enabled || document.getElementById('dev-teleport-tool')) return;

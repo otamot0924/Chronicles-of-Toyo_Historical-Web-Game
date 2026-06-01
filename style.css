@@ -236,7 +236,7 @@ body, html {
 #scene-right-button {
     position: absolute;
     top: 50%;
-    right: 0px;
+    right: 15%;
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
@@ -252,27 +252,11 @@ body, html {
 #scene-left-button {
     position: absolute;
     top: 50%;
-    left: 0px;
+    left: 15%;
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
     background-image: url('assets/left-arrow.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-#scene-back-button {
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background-image: url('assets/back-arrow.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -307,6 +291,86 @@ body, html {
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
+}
+
+/* 遊戲結束畫面樣式 */
+#game-over-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* 半透明黑色底 */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 確保在最上層 */
+    opacity: 0; /* 初始透明 */
+    pointer-events: none; /* 初始不接受點擊 */
+}
+
+#game-over-text {
+    color: #f5af2d;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+#restart-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #492e18;
+    color: #f5af2d;
+    border: 2px solid #f5af2d;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 定義漸入並上浮的動畫 */
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 應用動畫到遊戲結束文字與按鈕 */
+.animate-in {
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+}
+
+/* 讓子元素有先後順序的延遲 */
+#game-over-text {
+    opacity: 0; /* 初始隱藏 */
+}
+
+#restart-button {
+    opacity: 0; /* 初始隱藏 */
+}
+
+#game-over-screen.active {
+    display: flex;
+    animation: fadeIn 0.8s ease-out forwards;
+    pointer-events: all; /* 顯示時允許點擊 */
+}
+
+/* 這裡我們設定當容器顯示時，子元素觸發動畫 */
+#game-over-screen.active #game-over-text {
+    animation: fadeInSlideUp 1.2s ease-out forwards;
+}
+
+#game-over-screen.active #restart-button {
+    animation: fadeInSlideUp 1.2s ease-out 0.6s forwards; /* 延遲 0.4 秒顯示按鈕 */
 }
 
 
