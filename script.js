@@ -219,7 +219,6 @@ function checkRequiredItems(item) {
 }
 
 async function handleItemInteraction(item) {
-    VisitedItems.push(item.id);
     if (item.action == 'read') {
         if (item['required_items'] && !checkRequiredItems(item)) {
             if (item['read_warning']) {
@@ -228,6 +227,7 @@ async function handleItemInteraction(item) {
         }
         else {
             DialogueEngine.start(item.id);
+            VisitedItems.push(item.id);
         }
     }
     else if (item.action == 'leave_scene' || item.action == 'enter') {
