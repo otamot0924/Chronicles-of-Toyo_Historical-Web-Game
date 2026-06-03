@@ -158,7 +158,7 @@ function runLoadingAnimation(callback) {
     dialogueContainer.style.display = 'none';
 
     let progress = 0;
-    const animationDuration = 3000;
+    const animationDuration = 5000;
     const intervalTime = 20;
     const totalFrames = animationDuration / intervalTime;
     const increment = 100 / totalFrames;
