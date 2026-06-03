@@ -58,7 +58,7 @@ body, html {
 #start-icon {
     width: 600px;
     height: 800px;
-    background-image: url('assets/start-icon.png');
+    background-image: url('assets/start-icon.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -106,7 +106,7 @@ body, html {
     position: absolute;
     width: 100%;
     height: 90%;
-    background-image: url('assets/loading-bg.png');
+    background-image: url('assets/loading-bg.webp');
     background-color: #997a51; /* 背景圖片載入前的純色佔位 */
     background-size: contain;
     background-position: center;
@@ -121,7 +121,7 @@ body, html {
     width: 180px; /* 正方形大小 */
     height: 180px;
     /* 這裡原本是色塊，我加上圖片預設路徑 */
-    background-image: url('assets/boat.png');
+    background-image: url('assets/boat.webp');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -240,7 +240,7 @@ body, html {
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    background-image: url('assets/right-arrow.png');
+    background-image: url('assets/right-arrow.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -256,7 +256,7 @@ body, html {
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    background-image: url('assets/left-arrow.png');
+    background-image: url('assets/left-arrow.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -270,10 +270,6 @@ body, html {
 }
 
 #scene-left-button:hover {
-    filter: brightness(1.2);
-}
-
-#scene-back-button:hover {
     filter: brightness(1.2);
 }
 

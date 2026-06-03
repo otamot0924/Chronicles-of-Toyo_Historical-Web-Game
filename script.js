@@ -194,6 +194,7 @@ function renderSceneItems(scene) {
         const img = document.createElement('img');
         img.src = item.image;
         img.className = 'interactive-item';
+        img.loading = 'lazy';
 
         img.style.top = item.top;
         img.style.left = item.left;

@@ -1,12 +1,12 @@
 {
     "room_front": {
-        "image": "assets/scenes/intro-room-front.png",
+        "image": "assets/scenes/intro-room-front.webp",
         "right": "room_right",
         "left": "room_left",
         "items": [
             {
                 "id": "letter_a",
-                "image": "assets/items/letter.png",
+                "image": "assets/items/letter.webp",
                 "top": "26%",
                 "left": "65%",
                 "width": "12%",
@@ -15,12 +15,12 @@
         ]
     },
     "room_right": {
-        "image": "assets/scenes/intro-room-right.png",
+        "image": "assets/scenes/intro-room-right.webp",
         "left": "room_front",
         "items": [
             {
                 "id": "letter_b",
-                "image": "assets/items/letter.png",
+                "image": "assets/items/letter.webp",
                 "top": "40%",
                 "left": "47%",
                 "width": "13%",
@@ -29,12 +29,12 @@
         ]
     },
     "room_left": {
-        "image": "assets/scenes/intro-room-left.png",
+        "image": "assets/scenes/intro-room-left.webp",
         "right": "room_front",
         "items": [
             {
                 "id": "leave_intro",
-                "image": "assets/items/door.png",
+                "image": "assets/items/door.webp",
                 "top": "24%",
                 "left": "36%",
                 "width": "26%",
