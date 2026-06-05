@@ -83,7 +83,14 @@ body, html {
     justify-content: center;
     align-items: center;
     
-    margin-bottom: 75px;
+    margin-bottom: 10px;
+}
+
+#info {
+    color: #f5af2d;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 #start-button:hover {
